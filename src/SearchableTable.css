@@ -1,0 +1,44 @@
+.searchable-table {
+  margin: 2rem auto;
+  max-width: 600px;
+  text-align: center;
+}
+
+.search-box {
+  margin-bottom: 1rem;
+}
+
+.search-box input {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.search-box button {
+  margin-left: 0.5rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid #646cff;
+  background-color: #646cff;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.search-box button:hover {
+  background-color: #535bf2;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table th,
+table td {
+  border: 1px solid #ccc;
+  padding: 0.5rem;
+}
+
+table th {
+  background-color: #f4f4f4;
+}
