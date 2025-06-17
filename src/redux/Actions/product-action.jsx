@@ -5,4 +5,5 @@ export const ProductAction = {
   SetSearchText: createAction("product/setSearchText"),
   SetCategory: createAction("product/setCategory"),
   Reset: createAction("product/reset"),
+  SetProductsWithImage: createAction("product/setProductsWithImage"),
 };

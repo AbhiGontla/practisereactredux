@@ -1,0 +1,14 @@
+/* Container for the image */
+.image-container {
+  overflow: hidden;
+  border-radius: 5px;
+}
+
+/* Zoom-in effect on hover */
+.zoom-on-hover {
+  transition: transform 0.3s ease-in-out;
+}
+
+.zoom-on-hover:hover {
+  transform: scale(1.1); /* Zoom in the image */
+}

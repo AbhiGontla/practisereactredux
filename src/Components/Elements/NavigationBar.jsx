@@ -50,7 +50,31 @@ export default function NavigationBar() {
                         Add Product
                       </NavLink>
                     </li>
-
+                    <li className="nav-item dropdown">
+                      <a
+                        className="nav-link dropdown-toggle"
+                        href="#"
+                        id="navbarDropdown"
+                        role="button"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                      >
+                        Redux
+                      </a>
+                      <ul
+                        className="dropdown-menu"
+                        aria-labelledby="navbarDropdown"
+                      >
+                        <li className="nav-item">
+                          <NavLink
+                            to="/searchRedux"
+                            className="dropdown-item"
+                          >
+                           ProductList
+                          </NavLink>
+                        </li>
+                      </ul>
+                    </li>
                     <li className="nav-item dropdown">
                       <a
                         className="nav-link dropdown-toggle"
@@ -72,6 +96,23 @@ export default function NavigationBar() {
                             className="dropdown-item"
                           >
                             Add Product
+                          </NavLink>
+                        </li>
+                        
+                        {/* <li className="nav-item">
+                          <NavLink
+                            to="/productFormWithImage"
+                            className="dropdown-item"
+                          >
+                            Add Product with image
+                          </NavLink>
+                        </li> */}
+                        <li className="nav-item">
+                          <NavLink
+                            to="/productGrid"
+                            className="dropdown-item"
+                          >
+                            Products
                           </NavLink>
                         </li>
                       </ul>

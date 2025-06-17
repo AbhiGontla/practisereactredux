@@ -8,12 +8,26 @@ const initialState = {
   selectedCategory: "",
   searchText: "",
   filteredProducts: [],
+  productsWithImage: [],
 };
 
 const productReducer = createReducer(initialState, (builder) => {
   builder
     .addCase(ProductAction.FilteredProducts, (state, action) => {
-      state.filteredProducts = action.payload;
+      //state.filteredProducts = action.payload;
+      const { searchText, selectedCategory, products } = state;
+      if (selectedCategory === "") {
+        state.filteredProducts = products; // If no category is selected, show all products
+      }
+      const filtered = products.filter((product) => {
+        const matchesCategory =
+          selectedCategory === "" || product.categoryId == selectedCategory;
+        const matchesSearchText =
+          searchText === "" ||
+          product.name.toLowerCase().includes(searchText.toLowerCase());
+        return matchesCategory && matchesSearchText;
+      });
+      state.filteredProducts = filtered;
     })
     .addCase(ProductAction.SetSearchText, (state, action) => {
       state.searchText = action.payload;
@@ -25,6 +39,9 @@ const productReducer = createReducer(initialState, (builder) => {
       state.selectedCategory = "";
       state.searchText = "";
       state.filteredProducts = state.products; // Reset filtered products to all products
+    })
+    .addCase(ProductAction.SetProductsWithImage, (state, action) => {
+      state.productsWithImage = [...state.productsWithImage, action.payload];
     });
 });
 export default productReducer;

@@ -7,6 +7,9 @@ import SampleLayout from "./SampleLayout";
 import { ProductDetails } from "./ProductDetails";
 import UserProvider from "../Context/UserProvider";
 import ProtectedRoute from "./Security/ProtectedRoute";
+import SearchRedux from "./SearchRedux";
+import ProductFormWithImage from "./ProductsArea/ProductFormWithImage";
+import ProductGrid from "./ProductsArea/ProductGrid";
 
 function RouteLayout() {
   const SearchFilter = lazy(() => import("./SearchFilter"));
@@ -17,7 +20,7 @@ function RouteLayout() {
 
   return (
     <>
-      <BrowserRouter>
+      <BrowserRouter basename="/practisereactredux">
         <UserProvider>
           <NavigationBar />
           <Suspense fallback={<div>Loading...</div>}>
@@ -72,6 +75,30 @@ function RouteLayout() {
                 element={
                   <ProtectedRoute>
                     <AddProductFormik />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/searchRedux"
+                element={
+                  <ProtectedRoute>
+                    <SearchRedux />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/productFormWithImage"
+                element={
+                  <ProtectedRoute>
+                    <ProductFormWithImage />
+                  </ProtectedRoute>
+                }
+              />
+               <Route
+                path="/productGrid"
+                element={
+                  <ProtectedRoute>
+                    <ProductGrid />
                   </ProtectedRoute>
                 }
               />
