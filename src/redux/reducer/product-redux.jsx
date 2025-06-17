@@ -42,6 +42,7 @@ const productReducer = createReducer(initialState, (builder) => {
     })
     .addCase(ProductAction.SetProductsWithImage, (state, action) => {
       state.productsWithImage = [...state.productsWithImage, action.payload];
+     
     });
 });
 export default productReducer;

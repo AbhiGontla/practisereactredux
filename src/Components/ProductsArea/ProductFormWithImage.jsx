@@ -54,7 +54,7 @@ function ProductFormWithImage() {
         image: base64Image,
       };
       setProducts((prevProducts) => [...prevProducts, newProduct]);
-      alert("Product added successfully!");
+      //alert("Product added successfully!");
       resetForm(); // Reset Formik fields
       if (fileInputRef.current) {
         fileInputRef.current.value = ""; // Clear the file input manually

@@ -12,7 +12,7 @@ function LoginForm() {
     // Handle form submission
     console.log("Form submitted with values:", values);
     if (values.username === "admin" && values.password === "admin") {
-      alert("Login successful");
+      //alert("Login successful");
       // Redirect or perform any other actions
       loginUser({
         username: values.username,
