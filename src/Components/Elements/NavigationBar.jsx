@@ -12,11 +12,23 @@ export default function NavigationBar() {
           <div className="container">
             {user && user != null ? (
               <NavLink to="/SampleLayout" className="navbar-brand">
-                React Practise App
+                 <img
+                  src="./src/assets/FullLogo_NoBuffer.jpg" // Replace with your logo URL
+                  alt="Logo"
+                  className="me-2"
+                  style={{ width: "30px", height: "30px" }}
+                />
+                React App
               </NavLink>
             ) : (
               <NavLink to="/home" className="navbar-brand">
-                React Practise App
+                  <img
+                  src="./src/assets/FullLogo_NoBuffer.jpg" // Replace with your logo URL
+                  alt="Logo"
+                  className="me-2"
+                  style={{ width: "30px", height: "30px" }}
+                />
+                React App
               </NavLink>
             )}
 
@@ -134,9 +146,9 @@ export default function NavigationBar() {
                   </button>
                 </form> */}
                 <label className="text-white ms-2">
-                  Welcome {user.username}
+                  Welcome {user.userName}
                 </label>
-
+                
                 <button
                   className="btn btn-outline-danger ms-2"
                   onClick={logoutUser}

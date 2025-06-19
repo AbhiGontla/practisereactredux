@@ -8,25 +8,35 @@ import { useNavigate } from "react-router-dom";
 function LoginForm() {
   const { loginUser } = useContext(UserContext);
   const navigate = useNavigate();
+
   const handleSubmit = (values) => {
-    // Handle form submission
     console.log("Form submitted with values:", values);
     if (values.username === "admin" && values.password === "admin") {
       //alert("Login successful");
       // Redirect or perform any other actions
       loginUser({
-        username: values.username,
+        userName: values.username,
         password: values.password,
       });
       navigate("/SampleLayout");
     } else {
       alert("Invalid username or password");
     }
+    // AuthProvider.validateUser(values).then((response) => {
+    //   if (response && response.status === 200) {
+    //     loginUser(response.data);
+    //     navigate("/SampleLayout");
+    //   } else {
+    //     alert("Invalid username or password");
+    //   }
+    // });
   };
+
   const initialValues = {
     username: "",
     password: "",
   };
+
   const validationSchema = Yup.object().shape({
     username: Yup.string()
       .required("Username is required")
@@ -35,61 +45,77 @@ function LoginForm() {
       .required("Password is required")
       .min(5, "Password must be at least 6 characters"),
   });
-  return (
-    <div className="container mt-4  d-flex justify-content-center border border-2 rounded-3 shadow-sm">
-      <Formik
-        initialValues={initialValues}
-        validationSchema={validationSchema}
-        onSubmit={handleSubmit}
-      >
-        
-        <Form className="form-signin">
-        <label className="form-label mt-3">
-          <h2 className="text-center">Please Login.</h2>
-        </label>
-          <div className="mb-3 form-group">
-            {/* <label htmlFor="username" className="form-label">
-              Username
-            </label> */}
-            <Field
-              type="text"
-              id="username"
-              name="username"
-              className="form-control"
-              placeholder="User Name"
-            />
-            <ErrorMessage
-              name="username"
-              component="div"
-              className="text-danger"
-            />
-          </div>
 
-          <div className="mb-3 form-group">
-            {/* <label htmlFor="password" className="form-label">
-              Password
-            </label> */}
-            <Field
-              type="password"
-              id="password"
-              name="password"
-              className="form-control"
-              placeholder="Password"
-            />
-            <ErrorMessage
-              name="password"
-              component="div"
-              className="text-danger"
-            />
-          </div>
-          <div className="form-submit">
-            <button type="submit" className="btn btn-primary button-flex" fullWidth>
-              Login
-            </button>
-          </div>
-        </Form>
-      </Formik>
+  return (
+    <div className="container d-flex justify-content-center align-center pt-5">
+      <div className="card shadow-lg p-4" style={{ width: "400px" }}>
+        <div className="border p-3 rounded-3 border-2">
+        <div className="text-center mb-4 ">
+          <img
+            src="./src/assets/loginimage.webp" // Replace with your logo URL
+            alt="Logo"
+            className="img-fluid rounded-circle"
+          />
+        </div>
+        <Formik
+          initialValues={initialValues}
+          validationSchema={validationSchema}
+          onSubmit={handleSubmit}
+        >
+          <Form >
+           
+            <div className="mb-3">
+            
+              <Field
+                type="text"
+                id="username"
+                name="username"
+                className="form-control"
+                placeholder="username"
+              />
+              <ErrorMessage
+                name="username"
+                component="div"
+                className="text-danger mt-1"
+              />
+            </div>
+
+            <div className="mb-3">
+           
+              <Field
+                type="password"
+                id="password"
+                name="password"
+                className="form-control"
+                placeholder="password"
+              />
+              <ErrorMessage
+                name="password"
+                component="div"
+                className="text-danger mt-1"
+              />
+            </div>
+
+            <div className="d-grid">
+              <button
+                type="submit"
+                className="btn btn-primary btn-lg"
+                style={{
+                  backgroundColor: "#007bff",
+                  borderColor: "#007bff",
+                  fontWeight: "bold",
+                }}
+              >
+                Login
+              </button>
+            </div>
+          </Form>
+        </Formik>
+        </div>
+       
+      </div>
     </div>
   );
 }
+
 export default LoginForm;
